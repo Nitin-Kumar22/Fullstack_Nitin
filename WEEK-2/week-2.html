@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us - Better Design</title>
+    <style>
+        /* 1. ELEMENT SELECTORS */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+
+        h1 {
+            color: rgb(255, 255, 255); /* RGB - white */
+            text-align: center;
+            font-size: 2.5em;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+            margin: 0;
+        }
+
+        h2 {
+            color: hsl(220, 70%, 30%); /* HSL - dark blue */
+            font-size: 1.8em;
+            border-bottom: 3px solid #3498db;
+            padding-bottom: 10px;
+            margin-top: 30px;
+        }
+
+        h3 {
+            color: rgba(52, 73, 94, 0.9); /* RGBA - dark gray */
+            margin-bottom: 8px;
+        }
+
+        p {
+            color: rgba(44, 62, 80, 0.8); /* RGBA - dark blue-gray */
+            line-height: 1.6;
+            font-size: 16px;
+        }
+
+        /* 2. ID SELECTORS */
+        #header {
+            background: linear-gradient(45deg, #FF6B6B, #4ECDC4);
+            padding: 50px 20px;
+            text-align: center;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        #main-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: rgba(255, 255, 255, 0.95); /* RGBA - semi-transparent white */
+            border-radius: 15px;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+            margin-top: -20px;
+            position: relative;
+            z-index: 1;
+        }
+
+        #movie-zone {
+            background: linear-gradient(120deg, #a8edea 0%, #fed6e3 100%);
+            border-radius: 15px;
+            padding: 25px;
+            margin: 30px 0;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        #city-zone {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 15px;
+            padding: 25px;
+            margin: 30px 0;
+            color: white;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        /* 3. CLASS SELECTORS */
+        .card {
+            background-color: #ffffff; /* HEX - white */
+            border-radius: 12px;
+            padding: 20px;
+            margin: 15px 0;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+            border-left: 4px solid #3498db;
+            transition: all 0.3s ease;
+        }
+
+        .highlight {
+            background: linear-gradient(45deg, #FFD700, #FFA500);
+            color: rgb(139, 69, 19); /* RGB - brown */
+            padding: 3px 8px;
+            border-radius: 20px;
+            font-weight: bold;
+            display: inline-block;
+        }
+
+        .team-member {
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            color: white;
+            border-radius: 15px;
+            padding: 20px;
+            margin: 15px 0;
+            text-align: center;
+            transform: translateY(0);
+            transition: all 0.3s ease;
+        }
+
+        .contact-form {
+            background-color: hsl(210, 100%, 97%); /* HSL - very light blue */
+            border-radius: 10px;
+            padding: 20px;
+            border: 2px solid #e3f2fd;
+        }
+
+        /* 4. ATTRIBUTE SELECTORS */
+        input[type="text"], input[type="email"] {
+            width: 100%;
+            padding: 12px;
+            border: 2px solid hsl(200, 50%, 80%); /* HSL - light blue */
+            border-radius: 8px;
+            font-size: 16px;
+            transition: all 0.3s ease;
+            box-sizing: border-box;
+        }
+
+        a[href^="mailto:"] {
+            color: #e74c3c; /* HEX - red */
+            text-decoration: none;
+            font-weight: bold;
+            padding: 5px 10px;
+            border-radius: 20px;
+            background-color: rgba(231, 76, 60, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        div[class*="zone"] h2 {
+            text-align: center;
+            font-size: 2em;
+            margin-bottom: 20px;
+        }
+
+        /* 5. PSEUDO-CLASS SELECTORS */
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+            border-left-color: #e74c3c;
+        }
+
+        .team-member:hover {
+            transform: translateY(-8px) scale(1.02);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        a[href^="mailto:"]:hover {
+            background-color: rgba(231, 76, 60, 0.2);
+            color: hsl(348, 83%, 47%); /* HSL - darker red */
+        }
+
+        input:focus {
+            border-color: #9b59b6; /* HEX - purple */
+            box-shadow: 0 0 10px rgba(155, 89, 182, 0.3);
+            outline: none;
+        }
+
+        .movie-item:nth-child(odd) {
+            background-color: rgba(255, 255, 255, 0.8); /* RGBA - semi-transparent white */
+        }
+
+        .movie-item:nth-child(even) {
+            background-color: rgba(52, 152, 219, 0.1); /* RGBA - light blue */
+        }
+
+        /* 6. PSEUDO-ELEMENT SELECTORS */
+        h2::before {
+            content: "🌟 ";
+            font-size: 0.8em;
+            color: rgb(255, 193, 7); /* RGB - yellow */
+        }
+
+        .highlight::after {
+            content: " ✨";
+            animation: sparkle 2s infinite;
+        }
+
+        @keyframes sparkle {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.5; }
+        }
+
+        .team-member::before {
+            content: "👤 ";
+            font-size: 1.5em;
+        }
+
+        /* MOVIE LIST STYLING */
+        .movie-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .movie-item {
+            background-color: rgba(255, 255, 255, 0.9); /* RGBA - semi-transparent white */
+            margin: 10px 0;
+            padding: 15px 20px;
+            border-radius: 25px;
+            border-left: 5px solid #3498db;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .movie-item:hover {
+            transform: translateX(10px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        /* FAVORITE MOVIE - Special styling */
+        .favorite-movie {
+            background: linear-gradient(45deg, #FF6B6B, #4ECDC4, #45B7D1, #96CEB4, #FFEAA7) !important;
+            background-size: 300% 300%;
+            animation: gradientShift 3s ease infinite;
+            color: rgb(255, 255, 255) !important; /* RGB - white */
+            font-weight: bold;
+            font-size: 1.1em;
+            border: 3px solid #fff !important;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2) !important;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+        }
+
+        @keyframes gradientShift {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        /* CITY LIST STYLING */
+        .city-list {
+            list-style: none;
+            padding: 0;
+            counter-reset: city-counter;
+        }
+
+        .city-item {
+            counter-increment: city-counter;
+            background-color: rgba(255, 255, 255, 0.2); /* RGBA - semi-transparent white */
+            margin: 12px 0;
+            padding: 15px 20px 15px 50px;
+            border-radius: 30px;
+            position: relative;
+            backdrop-filter: blur(5px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            transition: all 0.3s ease;
+        }
+
+        .city-item::before {
+            content: counter(city-counter);
+            position: absolute;
+            left: 15px;
+            top: 50%;
+            transform: translateY(-50%);
+            background: linear-gradient(45deg, #FF6B6B, #4ECDC4);
+            color: white;
+            width: 25px;
+            height: 25px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2);
+        }
+
+        .city-item:hover {
+            background-color: rgba(255, 255, 255, 0.3);
+            transform: translateX(10px);
+        }
+
+        #city-zone h2 {
+            color: rgba(255, 255, 255, 0.95); /* RGBA - almost white */
+        }
+    </style>
+</head>
+<body>
+    <!-- Header section -->
+    <div id="header">
+        <h1>TechVision Company</h1>
+        <p>Innovation ke saath success ki journey</p>
+    </div>
+
+    <!-- Main content container -->
+    <div id="main-container">
+        
+        <!-- About section -->
+        <div class="card">
+            <h2>About Us</h2>
+            <p>We are a modern company dedicated to creating <span class="highlight">innovative products</span>. Our mission is to use technology to make people's lives easier, smarter, and better.</p>
+        </div>
+
+        <!-- Team section -->
+        <h2>Our Amazing Team</h2>
+        
+        <div class="team-member">
+            <h3>Rajesh Kumar - CEO</h3>
+            <p>10+ years experience | Email: <a href="mailto:rajesh@company.com">rajesh@company.com</a></p>
+        </div>
+
+        <div class="team-member">
+            <h3>Priya Sharma - Designer</h3>
+            <p>Creative head | Email: <a href="mailto:priya@company.com">priya@company.com</a></p>
+        </div>
+
+        <div class="team-member">
+            <h3>Amit Singh - Developer</h3>
+            <p>Tech expert | Email: <a href="mailto:amit@company.com">amit@company.com</a></p>
+        </div>
+
+        <!-- Movie section -->
+        <div id="movie-zone">
+            <h2>Team ke Favorite Movies</h2>
+            <ul class="movie-list">
+                <li class="movie-item">3 Idiots - Comedy aur inspiration</li>
+                <li class="movie-item">Dangal - Sports aur family drama</li>
+                <li class="movie-item favorite-movie">🏆 Avengers Endgame - Sabka absolute favorite!</li>
+                <li class="movie-item">Zindagi Na Milegi Dobara - Friendship goals</li>
+                <li class="movie-item">The Dark Knight - Superhero masterpiece</li>
+            </ul>
+        </div>
+
+        <!-- City section -->
+        <div id="city-zone">
+            <h2>Hamare Office Locations</h2>
+            <ol class="city-list">
+                <li class="city-item">Mumbai - Main headquarters aur business center</li>
+                <li class="city-item">Delhi - North India operations</li>
+                <li class="city-item">Bangalore - Tech development hub</li>
+                <li class="city-item">Pune - Innovation center</li>
+                <li class="city-item">Hyderabad - Client services office</li>
+            </ol>
+        </div>
+
+        <!-- Contact section -->
+        <div class="contact-form">
+            <h2>Get in Touch</h2>
+            <p>Name: <input type="text" placeholder="Apna naam enter kariye"></p>
+            <p>Email: <input type="email" placeholder="example@gmail.com"></p>
+            <p>Main email: <a href="mailto:info@company.com">info@company.com</a></p>
+        </div>
+
+    </div>
+</body>
+</html>
